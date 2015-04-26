@@ -1,3 +1,17 @@
+# LulzBot Taz 3
+Configuration for LulzBot Taz 3 updated to support a more recent version of the Marlin firmware. See the following links.
+
+  * https://www.lulzbot.com/support/re-flashing-your-3d-printers-firmware
+  * https://www.lulzbot.com/tags/taz-3
+  * https://www.lulzbot.com/products/lulzbot-taz-5-3d-printer
+
+# Laser Cutting
+Laser cutting is easily supported on LulzBot Taz printers. Hardware designs, software, and documentation provided through the following links.
+
+  * https://github.com/mirage335/LaserDriver/blob/master/LaserDriver.png
+  * https://github.com/mirage335/gedaProduction
+  
+
 # Marlin 3D Printer Firmware
 <img align="right" src="Documentation/Logo/Marlin%20Logo%20GitHub.png" />
 
