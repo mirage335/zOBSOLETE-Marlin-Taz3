@@ -46,7 +46,7 @@
 
 //  extruder run-out prevention.
 //if the machine is idle, and the temperature over MINTEMP, every couple of SECONDS some filament is extruded
-//#define EXTRUDER_RUNOUT_PREVENT
+#define EXTRUDER_RUNOUT_PREVENT
 #define EXTRUDER_RUNOUT_MINTEMP 190
 #define EXTRUDER_RUNOUT_SECONDS 30.
 #define EXTRUDER_RUNOUT_ESTEPS 14. //mm filament
@@ -64,6 +64,13 @@
 #define CONTROLLERFAN_PIN -1 //Pin used for the fan to cool controller (-1 to disable)
 #define CONTROLLERFAN_SECS 60 //How many seconds, after all motors were disabled, the fan should run
 #define CONTROLLERFAN_SPEED 255  // == full speed
+
+#define CASEFAN_PIN 2 //Pin used for the fan to cool controller (-1 to disable)
+#define CASEFAN_SECS 15 //How many seconds, after all motors were disabled, the fan should run before going back to idle speed.
+#define CASEFAN_SPEED_FULL 100  // Full speed for when motor are active
+#define CASEFAN_SPEED_IDLE 70          // Idle speed for when the motor have been inactive     
+#define CASEFAN_SPEED_MAX 128          // Maximum limit for the fan speed so it does not burn out. Use 128 for 12v fans with 24V Power Supplies
+#define CASEFAN_SPEED_MIN 70   // Minimum limit for the fan speed where it will start to spin from a stop without a push.
 
 // When first starting the main fan, run it at full speed for the
 // given number of milliseconds.  This gets the fan spinning reliably
@@ -213,9 +220,9 @@
 //homing hits the endstop, then retracts by this distance, before it tries to slowly bump again:
 #define X_HOME_RETRACT_MM 5
 #define Y_HOME_RETRACT_MM 5
-#define Z_HOME_RETRACT_MM 2
+#define Z_HOME_RETRACT_MM 4
 #define HOMING_BUMP_DIVISOR {10, 10, 20}  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
-//#define QUICK_HOME  //if this is defined, if both x and y are to be homed, a diagonal move will be performed initially.
+#define QUICK_HOME  //if this is defined, if both x and y are to be homed, a diagonal move will be performed initially.
 
 #define AXIS_RELATIVE_MODES {false, false, false, false}
 #ifdef CONFIG_STEPPERS_TOSHIBA
@@ -269,10 +276,10 @@
 #define MICROSTEP16 HIGH,HIGH
 
 // Microstep setting (Only functional when stepper driver microstep pins are connected to MCU.
-#define MICROSTEP_MODES {16,16,16,16,16} // [1,2,4,8,16]
+#define MICROSTEP_MODES {16,16,4,16,16} // [1,2,4,8,16]
 
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define DIGIPOT_MOTOR_CURRENT {135,135,135,135,135} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
+#define DIGIPOT_MOTOR_CURRENT {175,175,220,135,135} // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 
 // uncomment to enable an I2C based DIGIPOT like on the Azteeg X3 Pro
 //#define DIGIPOT_I2C
@@ -446,7 +453,7 @@ const unsigned int dropsegments=5; //everything with less than this number of st
 
 //adds support for experimental filament exchange support M600; requires display
 #ifdef ULTIPANEL
-  #define FILAMENTCHANGEENABLE
+  //#define FILAMENTCHANGEENABLE
   #ifdef FILAMENTCHANGEENABLE
     #define FILAMENTCHANGE_XPOS 3
     #define FILAMENTCHANGE_YPOS 3
