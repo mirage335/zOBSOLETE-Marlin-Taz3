@@ -234,15 +234,20 @@ Here are some standard links for getting your machine calibrated:
 // all forms of bed control obey this (PID, bang-bang, bang-bang with hysteresis)
 // setting this to anything other than 255 enables a form of PWM to the bed just like HEATER_BED_DUTY_CYCLE_DIVIDER did,
 // so you shouldn't use it unless you are OK with PWM on your bed.  (see the comment on enabling PIDTEMPBED)
-#define MAX_BED_POWER 232 // limits duty cycle to bed; 255=full current
+#define MAX_BED_POWER 250 // limits duty cycle to bed; 255=full current
 
 //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
 #ifdef PIDTEMPBED
+//24V 360W silicone heater from NPH on 3mm borosilicate (TAZ 2.2+) *WITH* 3/16" Aluminum Plate Carrier (Thermal Mass)
+	#define  DEFAULT_bedKp 332.99
+	#define  DEFAULT_bedKi 48.39
+	#define  DEFAULT_bedKd 572.87
+
 //24V 360W silicone heater from NPH on 3mm borosilicate (TAZ 2.2+)
-    #define  DEFAULT_bedKp 20
-    #define  DEFAULT_bedKi 5
-    #define  DEFAULT_bedKd 275
+//    #define  DEFAULT_bedKp 20
+//    #define  DEFAULT_bedKi 5
+//    #define  DEFAULT_bedKd 275
 
 //12v 400W silicone heater from QUDB into 3mm borosilicate (TAZ 1.0+)
 //from pidautotune
