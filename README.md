@@ -1,3 +1,11 @@
+
+OBSOLETE
+
+DO NOT USE EXCEPT TO SUPPORT LEGACY HARDWARE
+
+Originally forked from https://github.com/MarlinFirmware/Marlin .
+
+
 # LulzBot Taz 3
 Configuration for LulzBot Taz 3 updated to support a more recent version of the Marlin firmware. See the following links.
 
